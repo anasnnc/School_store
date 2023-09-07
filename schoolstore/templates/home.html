@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <titl>home</titl>
+</head>
+<body>
+{% block content %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'schoolApp:stud_form' %}" class="btn btn-primary">order details</a>
+    {% else %}
+    <a href="{% url 'credential:login' %}" class="btn btn-primary">student Form</a>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

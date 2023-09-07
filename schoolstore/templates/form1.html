@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<form method="post">
+    {% csrf_token %}
+
+           <div class="form-group">
+         <input class="form-control form-control-sm" type="text" name="name" placeholder="Enter your name">
+        <input class="form-control form-control-sm" type="date" name="DOB" >
+     <input class="form-control form-control-sm" type="number" name="age" placeholder="Enter your age">
+               <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" >
+          <label class="form-check-label" for="gridRadios1">
+            male
+          </label>
+        </div>
+          <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="female" >
+          <label class="form-check-label" for="gridRadios1">
+            Female
+          </label>
+          </div>
+      </div>
+               </div>
+               <input class="form-control form-control-sm" type="number" name="phone" placeholder="Enter your phone number">
+               <input class="form-control form-control-sm" type="email" name="mail" placeholder="Enter your Email">
+               <textarea class="form-control form-control-sm" rows="3" name="address" placeholder="Enter your address"></textarea>
+               <div>
+                    <select id="department" class="form-control form-control-sm" name="department" required>
+                    <option value="0">--Select Department--</option>
+                   {% for item in department %}
+                    <option value="{{ item.id }}">{{ item.departmentName }}</option>
+                   {% endfor %}
+                </select>
+                <select id="Cours" class="form-control form-control-sm" name="cours" required>
+                    <option value="0">--Select Cours--</option>
+                   {% for item in cours %}
+                    <option value="{{ item.dptid_id }}">{{ item.cours_name }}</option>
+                   {% endfor %}
+                </select>
+               </div>
+                <select class="form-control form-contol-sm" name="purpose">
+                    <option disabled="true">--Purpose--</option>
+                    <option value="enquery">enquery</option>
+                    <option value="return">return</option>
+                    <option value="order">place order</option>
+
+
+                </select>
+           <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Material</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="pen" name="meterial" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Pen
+            </label>
+        </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ntebook" name="meterial" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                NoteBook
+            </label>
+        </div>
+      </div>
+           </div>
+           <input type="submit">
+
+              <div class="form-outline">
+                      {% for msg in messages %}
+                      <div class="alert alert-success">
+                        <strong>{{msg}}</strong> <a href="{% url 'schoolApp:home' %}" class="alert-link">Return To Home Page </a></div>
+                      {% endfor %}
+                    </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</form>
+    </div>
+<script>
+    $(document).ready(function (){
+    var department=$("#department"),
+        Cours=$("#Cours"),
+        $options = Cours.find('option');
+        department.on('change',function (){
+            Cours.html($options.filter('[value="'+this.value +'"]'));
+
+        }).trigger('change');
+    });
+    </script>
+{% endblock %}
+
+
+
