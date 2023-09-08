@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <table>
+        <div class="card bg-light detail" style="width: 25rem">
+            <div class="card-body">
+            {% if user.is_superuser %}
+                  <h2>ORDERED PERSONS </h2>
+            <ul>
+                   {% for i in detail %}
+                       <li> <a href="{% url 'schoolApp:Details' i.id %}" >{{ i.name }}</a> <br></li>
+                        {% endfor %}
+            </ul>
+                {% else %}
+                <div class="alert alert-success">
+                <strong>Only access for Administrator</strong><a href="{% url 'credential:login' %}">please login here</a>
+            {% endif %}
+
+
+            </div>
+        </div>
+
+
+
+
+    </table>
+
+{% endblock %}
+</body>
+</html>

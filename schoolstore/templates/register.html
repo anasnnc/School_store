@@ -9,11 +9,17 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="Enter username"><br>
-    <input type="password" name="pass1" placeholder="Enter password"><br>
-    <input type="password" name="pass2" placeholder="Confirm password"><br>
-    <input type="submit">
 
+<div class="card  bg-light login" style="width: 18rem;">
+  <div class="card-body">
+    <input type="text" class="name1" name="username" placeholder="Enter username"><br>
+    <input type="password" class="psw" name="pass1" placeholder="Enter password"><br>
+       <input type="password" name="pass2" class="psw" placeholder="Confirm password"><br>
+    <input type="submit" class="b2">
+
+
+  </div>
+</div>
 </form>
 {% endblock %}
 </body>

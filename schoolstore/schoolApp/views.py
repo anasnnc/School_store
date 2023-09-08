@@ -49,3 +49,10 @@ def form1(request):
 
 
     return render(request,form,{'department':deptcontext,'cours':corcontext})
+def orderDetail(request):
+    detail=orderForm.objects.all()
+    return render(request,'order_details.html',{'detail':detail})
+
+def Details(request,order_id):
+    detail1=orderForm.objects.get(id=order_id)
+    return render(request,'details.html',{'detail1':detail1})

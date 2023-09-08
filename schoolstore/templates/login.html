@@ -6,15 +6,22 @@
     <title>Title</title>
 </head>
 <body>
-{% block content %}
-<form method="post">
-    {% csrf_token %}
 
-    <input type="text" name="username" placeholder="Enter your username"><br>
-    <input type="password" name="password" placeholder="Enter your password"><br>
-    <input type="submit">
-    <a href="{% url 'credential:register' %}">register</a>
-</form>
+{% block content %}
+
+      <form method="post">
+    {% csrf_token %}
+    <div class="card  bg-light login" style="width: 18rem;">
+  <div class="card-body">
+    <input type="text" class="name1" name="username" placeholder="Enter your username"><br>
+    <input type="password" class="psw" name="password" placeholder="Enter your password"><br>
+    <input type="submit" class="b1">
+
+    <a href="{% url 'credential:register' %}" class="btn btn-success" style="border-radius: 10px">register</a>
+  </div>
+</div>
+    </form>
+
 {% endblock %}
 </body>
 </html>

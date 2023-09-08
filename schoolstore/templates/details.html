@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+  <div class="card" style="width: 25rem">
+    <div class="card-body">
+        <h2 style="text-align: center">{{ detail1.name }}</h2>
+         <label for="inputEmail3" class="col-sm-5 col-form-label">DOB</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.DOB }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Age</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.age }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Gender</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.gender }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Phone</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.phone }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Email</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.email }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Address</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.address }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Department</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.department }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Course</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.cours }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Purpose</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.purpose }}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Material</label>
+            <label class="col-sm-6 col-form-label">{{ detail1.material }}</label>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+</body>
+</html>
